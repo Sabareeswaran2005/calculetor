@@ -26,7 +26,7 @@ A modern and responsive calculator web application with a clean user interface a
 
 ## 📸 Preview
 
-![Modern Calculator](screenshot.png)
+![Modern Calculator](Screenshot%202026-09-07%20163750.png)
 
 ## 📂 Project Structure
 
