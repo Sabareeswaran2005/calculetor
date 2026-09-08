@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="Light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Calculator</title>
+  
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+ 
+    <div id="toast" class="toast" role="alert" aria-live="polite">
+        <i class="fa-solid fa-check-circle"></i>
+        <span id="toast-message">Copied to clipboard!</span>
+    </div>
+
+    <div class="app-container">
+        
+        
+        <main class="calculator-card">
+            
+            
+            <header class="calculator-header">
+                <div class="app-brand">
+                    <span class="brand-dot"></span>
+                    <h1 class="app-title">Calculator</h1>
+                </div>
+                <div class="header-actions">
+                    <button id="theme-toggle" class="icon-btn" title="Toggle Light/Dark Theme" aria-label="Toggle Theme">
+                        <i class="fa-solid fa-moon moon-icon"></i>
+                        <i class="fa-solid fa-sun sun-icon"></i>
+                    </button>
+                    <button id="history-toggle" class="icon-btn" title="Toggle Calculation History" aria-label="Toggle History">
+                        <i class="fa-solid fa-clock-rotate-left"></i>
+                    </button>
+                </div>
+            </header>
+
+           
+            <section class="calculator-display" aria-label="Calculator Display">
+                <div class="display-top-row">
+                    <div id="expression-display" class="expression-line" title="Calculation path"></div>
+                    <button id="copy-btn" class="copy-btn" title="Copy result to clipboard" aria-label="Copy result">
+                        <i class="fa-regular fa-copy"></i>
+                    </button>
+                </div>
+                <div class="display-main-row">
+                    <span id="main-display" class="main-output">0</span>
+                </div>
+            </section>
+
+            <section class="calculator-keypad" aria-label="Calculator Keypad">
+               
+                <button id="btn-clear" class="btn btn-action" data-action="clear" title="Clear All (Escape)">AC</button>
+                <button id="btn-toggle-sign" class="btn btn-action" data-action="toggle-sign" title="Toggle Positive/Negative (+/-)">+/−</button>
+                <button id="btn-percent" class="btn btn-action" data-action="percent" title="Percentage (%)">%</button>
+                <button id="btn-divide" class="btn btn-operator" data-operator="÷" title="Divide (/)">÷</button>
+
+                <button id="btn-7" class="btn btn-num" data-num="7">7</button>
+                <button id="btn-8" class="btn btn-num" data-num="8">8</button>
+                <button id="btn-9" class="btn btn-num" data-num="9">9</button>
+                <button id="btn-multiply" class="btn btn-operator" data-operator="×" title="Multiply (*)">×</button>
+
+             
+                <button id="btn-4" class="btn btn-num" data-num="4">4</button>
+                <button id="btn-5" class="btn btn-num" data-num="5">5</button>
+                <button id="btn-6" class="btn btn-num" data-num="6">6</button>
+                <button id="btn-subtract" class="btn btn-operator" data-operator="-" title="Subtract (-)">−</button>
+
+           
+                <button id="btn-1" class="btn btn-num" data-num="1">1</button>
+                <button id="btn-2" class="btn btn-num" data-num="2">2</button>
+                <button id="btn-3" class="btn btn-num" data-num="3">3</button>
+                <button id="btn-add" class="btn btn-operator" data-operator="+" title="Add (+)">+</button>
+
+              
+                <button id="btn-0" class="btn btn-num" data-num="0">0</button>
+                <button id="btn-decimal" class="btn btn-num" data-action="decimal">.</button>
+                <button id="btn-backspace" class="btn btn-action" data-action="backspace" title="Backspace (Delete)">
+                    <i class="fa-solid fa-delete-left"></i>
+                </button>
+                <button id="btn-equals" class="btn btn-equals" data-action="calculate" title="Calculate Result (Enter)">=</button>
+            </section>
+        </main>
+
+        
+        <aside id="history-panel" class="history-panel" aria-label="Calculation History">
+            <div class="history-header">
+                <h2><i class="fa-solid fa-clock-rotate-left"></i> History</h2>
+                <button id="clear-history-btn" class="clear-history-btn" title="Clear History">
+                    <i class="fa-solid fa-trash-can"></i> Clear
+                </button>
+            </div>
+            <div id="history-list" class="history-list">
+                <div class="history-empty">
+                    <i class="fa-regular fa-folder-open"></i>
+                    <p>No calculation history yet</p>
+                </div>
+            </div>
+        </aside>
+
+    </div>
+
+    
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
